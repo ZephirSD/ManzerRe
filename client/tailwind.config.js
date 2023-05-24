@@ -4,6 +4,10 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    colors: {
+      'headerColor': '#494747',
+      'roseColor': '#E26F6F',
+    },
     extend: {},
   },
   plugins: [
