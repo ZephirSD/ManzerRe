@@ -1,0 +1,12 @@
+div#gridCardRepasAccueil{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25vw);
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+button#btnCreerRepas{
+    background-color: #E26F6F;
+}
