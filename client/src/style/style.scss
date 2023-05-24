@@ -10,6 +10,7 @@
 body{
     padding: 0;
     margin: 0;
+    background-color: #B6B398;
 }
 
 //Thème clair et sombre pour le projet
@@ -22,4 +23,6 @@ body{
 }
 
 //Import de fichiers styles des composants
-// @import url();
+@import url(composants/Header.scss);
+@import url(pages/Accueil.scss);
+@import url(composants/CardRepas.scss);
