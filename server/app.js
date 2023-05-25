@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const port = 6000;
+const port = 5000;
 require('dotenv').config()
 const routeRepas = require('./routes/routesRepas');
 const cors = require("cors");
 
-app.use(cors());
+app.use(express.json());
+
 try{
   mongoose.connect(process.env.LIEN_MONGO, { useNewUrlParser: true})
   .then(()=>{
@@ -18,7 +19,6 @@ catch{
   console.error();
 }
 
-app.use(express.json());
 app.use('/api/repas', routeRepas);
 
 app.get('/', function (req, res) {
