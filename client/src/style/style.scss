@@ -5,6 +5,7 @@
 :root{
     --full-width: 100%;
     --full-height: 100vh;
+    --gris_appli: #494747;
 }
 
 body{
@@ -26,3 +27,5 @@ body{
 @import url(composants/Header.scss);
 @import url(pages/Accueil.scss);
 @import url(composants/CardRepas.scss);
+@import url(pages/Formulaire.scss);
+@import url(pages/RepasClient.scss);
