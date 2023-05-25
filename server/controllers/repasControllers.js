@@ -19,13 +19,13 @@ const createRepas = ((req, res) => {
 })
 
 const updateRepas = ((req, res) => {
-    Repas.findOneAndUpdate({ _id: req.params.productID }, req.body, { new: true, runValidators: true })
+    Repas.findOneAndUpdate({ _id: req.params.repasID }, req.body, { new: true, runValidators: true })
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(404).json({msg: 'Product not found' }))
 })
 
 const deleteRepas = ((req, res) => {
-    Repas.findOneAndDelete({ _id: req.params.productID })
+    Repas.findOneAndDelete({ _id: req.params.repasID })
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(404).json({msg: 'Product not found' }))
 })
