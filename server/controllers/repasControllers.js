@@ -7,7 +7,7 @@ const getRepas = ((req, res) => {
 })
 
 const getRepasOne = ((req, res) => {
-    Repas.findOne({ _id: req.params.productID })
+    Repas.find({ id_createur: req.params.clientID })
         .then(result => res.status(200).json({ result }))
         .catch(() => res.status(404).json({msg: 'Product not found'}))
 })

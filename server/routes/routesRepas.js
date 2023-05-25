@@ -11,12 +11,12 @@ const  {
 
 router.get('/', getRepas)
 
-router.get('/:id', getRepasOne)
+router.get('/:clientID', getRepasOne)
 
 router.post('/', createRepas) 
 
 router.put('/:repasID', updateRepas) 
 
-router.delete('/:irepasIDd', deleteRepas)
+router.delete('/:repasID', deleteRepas)
 
 module.exports = router

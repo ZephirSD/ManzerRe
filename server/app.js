@@ -6,6 +6,8 @@ require('dotenv').config()
 const routeRepas = require('./routes/routesRepas');
 const cors = require("cors");
 
+app.use(cors());
+
 app.use(express.json());
 
 try{

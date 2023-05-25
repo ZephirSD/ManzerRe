@@ -4,6 +4,7 @@ const RepasSchema = new mongoose.Schema({
     nom_repas: String,
     tags: Array,
     secteur: String,
+    id_createur: String
 })
 
 const Repas = mongoose.model('Repas', RepasSchema)
