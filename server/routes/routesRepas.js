@@ -15,8 +15,8 @@ router.get('/:id', getRepasOne)
 
 router.post('/', createRepas) 
 
-router.put('/:id', updateRepas) 
+router.put('/:repasID', updateRepas) 
 
-router.delete('/:id', deleteRepas)
+router.delete('/:irepasIDd', deleteRepas)
 
 module.exports = router
