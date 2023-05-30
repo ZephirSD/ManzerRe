@@ -14,3 +14,10 @@ nav#navHeader{
         }
     }
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    z-index: 10;
+    width: 30vw;
+  }
+  
