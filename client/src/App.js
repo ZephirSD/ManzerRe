@@ -24,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Accueil listeRepas={repasGet}/>}/>
             <Route path="/:crudRepas" element={<Formulaire/>} />
+            <Route path="/:crudRepas/:id_repas" element={<Formulaire/>} />
             <Route path='/repas-client/:idClient' element={<RepasClient/>}/>
           </Routes>    
       </BrowserRouter>
