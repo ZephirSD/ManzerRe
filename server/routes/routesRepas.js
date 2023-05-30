@@ -6,12 +6,15 @@ const  {
     getRepasOne,
     createRepas,
     updateRepas,
-    deleteRepas 
+    deleteRepas, 
+    getRepasOneRepas
 } = require('../controllers/repasControllers')
 
 router.get('/', getRepas)
 
 router.get('/:clientID', getRepasOne)
+
+router.get('/one/:repasID', getRepasOneRepas)
 
 router.post('/', createRepas) 
 
