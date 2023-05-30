@@ -11,6 +11,7 @@ function Header() {
     // let getUsers = JSON.parse(localStorage.getItem('getUsers') || '[]');
     const [userState, setuserState] = useState("");
     const [ user, setUser ] = useState([]);
+    const [ lienUser, setlienUser ] = useState("");
     const [ profile, setProfile ] = useState([]);
     const login = useGoogleLogin({
       onSuccess: (codeResponse) => {setUser(codeResponse)},
@@ -69,11 +70,11 @@ function Header() {
     },[user]);
     useEffect(() => {
         async function setUserArray() {
-          if(userState && JSON.stringify(userState).length > 2){
+          if(userState && JSON.stringify(userState).length > 1){
             await localStorage.setItem("getUsers", JSON.stringify(userState));
+            setlienUser(JSON.parse(localStorage.getItem("getUsers")).result.id_user);
           }
         }
-        // let arrayUser = JSON.parse(localStorage.getItem("getUsers"));
         // console.log(arrayUser.result.id_user);
         setUserArray();
       });
@@ -102,9 +103,15 @@ function Header() {
                                             </Link>
                                         </li>
                                         <li class="">
-                                            <Link to={`/repas-client/${JSON.parse(localStorage.getItem("getUsers")).result.id_user}`}>
-                                                <span class="bg-white hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Listes de vos repas</span>
-                                            </Link>
+                                            {
+                                                lienUser != null ? 
+                                                (
+                                                    <Link to={`/repas-client/${lienUser}`}>
+                                                        <span class="bg-white hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Listes de vos repas</span>
+                                                    </Link>
+                                                ) 
+                                                : (<></>)
+                                            }
                                         </li>
                                     </ul>
                                 </div>
