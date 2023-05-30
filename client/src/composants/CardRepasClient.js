@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import repasImage from '../assets/carry_bichique.jpg'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -10,6 +10,18 @@ function CardRepasClient({repas}) {
         .then(response => response.json())
         .catch(err => console.error(err));
     }
+    const [userRepas, setuserRepas] = useState([]);
+    useEffect(() => {
+        const fetchRepas = async () => {
+            await axios.get(`${process.env.REACT_APP_URL_FETCH}/api/user/${repas.id_createur}`)
+            .then(response => {
+                setuserRepas(response.data.result);
+            }).catch(err => console.error);
+          }
+        fetchRepas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
   return (
     <>
         <div class="max-w-sm rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" id="cardRepasA">
@@ -31,14 +43,14 @@ function CardRepasClient({repas}) {
                 </p>
                 <div class="flex items-center space-x-4">
                     <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                        <svg class="absolute w-12 h-12 text-gray-300 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                        <img src={userRepas.image} alt="ProfilePicture" />
                     </div>
                     <div class="font-medium dark:text-white">
-                        <div class="text-gray-300">Test</div>
+                        <div class="text-gray-300">{userRepas.pseudo}</div>
                     </div>
                 </div>
                 <div class="flex justify-between w-full py-4">
-                    <Link to={`/modifier?${repas._id}`}>
+                    <Link to={`/modifier/${repas._id}`}>
                         <button type="button" class="text-white bg-yellow-400 mx-4 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-yellow-400 dark:hover:bg-yellow-700 dark:focus:bg-yellow-800">
                             Modifier
                         </button>                    
